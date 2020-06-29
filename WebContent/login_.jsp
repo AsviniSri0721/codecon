@@ -23,10 +23,11 @@ rs.next();
 if(rs.getString("password").equals(password)&&rs.getString("uname").equals(uname))
 {
 out.println("Welcome " +uname);
-request.getRequestDispatcher("/viewStudent.jsp").forward(request, response);
+request.getRequestDispatcher("/home.jsp").forward(request, response);
 }
 else{
 out.println("Invalid password or username.");
+request.getRequestDispatcher("/index.jsp").forward(request, response);
 }
 }
 catch (Exception e) {

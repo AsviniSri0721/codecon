@@ -102,7 +102,7 @@ public class AverageTempReport extends HttpServlet {
 			connection = (Connection) DriverManager.getConnection(connectionUrl+dbName, username, password);
 			statement=(Statement) connection.createStatement();
 		
-		    String query = "select* from student s,temprature t where s.sid=t.sid and t.mtemp>35 ";       
+		    String query = "select* from student s,temprature t where s.sid=t.sid and t.mtemp>37";       
 		    
 		    resultSet = statement.executeQuery(query);
   
@@ -128,7 +128,7 @@ public class AverageTempReport extends HttpServlet {
 		    
 		    Paragraph par1=new Paragraph();
 		  
-		    par1.add(new Phrase("HINDU LADIED COLLEGE"));
+		    par1.add(new Phrase("Covid Lanka"));
 		    par1.setAlignment(Element.ALIGN_CENTER);
 		    par1.add(new Phrase(Chunk.NEWLINE));
 		    par1.add(new Phrase(Chunk.NEWLINE));

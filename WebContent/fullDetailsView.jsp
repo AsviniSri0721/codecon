@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+    <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
@@ -9,7 +9,7 @@
 <%!String user = "root";%>
 <%!String psw = "";%>
 <head>
-  <title>Bootstrap Example</title>
+  <title>CovidLanka</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -19,21 +19,25 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" href="index.jsp">CovidLanka</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="">Page 1</a></li>
-      <li><a href="">Page 2</a></li>
+     <li ><a href="addStudentDetails.jsp">Add Students</a></li>
+        <li ><a href="viewStudent.jsp">Add Student temperature</a></li>
+        <li class="active"><a href="fullDetailsView.jsp">Student Temperature</a></li>
+        <li><a href="ReportTemp.jsp">Generate report</a></li>
+        <li><a href="SendEmail.jsp">Send mail</a></li>
+        <li class="active">
     </ul>
     <form action="fullDetailsView.jsp" class="navbar-form navbar-left" action="/action_page.php">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Enter class id" name="classid">
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <button type="submit" class="btn btn-default" onclick="chumma()">ENTER</button>
     </form>
   </div>
 </nav>
+<br>
 <center><h1>Student Details</h1></center>
 
 <%
@@ -94,14 +98,18 @@ body {font-family: Arial, Helvetica, sans-serif;}
   text-decoration: none;
   cursor: pointer;
 }
+input[type=text], input[type=password] {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
 </style>
 
 <html>
-<link rel="stylesheet" href="Views/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<head>
+
 <script>
 function myFunction() {
 	  var input, filter, table, tr, td, i, txtValue;
@@ -149,8 +157,10 @@ window.onclick = function(event) {
   }
 }
 </script>
-<br><br>
+<br>
+<div  class="container text-center">
  <input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search username...." >
+ </div>
  <br><br>
  <div class="container">
 <table id="myTable" class="table table-striped">
@@ -167,20 +177,26 @@ window.onclick = function(event) {
 try{
 connection = DriverManager.getConnection(connectionUrl+database, userid, password);
 statement=connection.createStatement();
-String sql ="select distinct* from student s,temprature t where s.sid=t.sid and s.classid='"+request.getParameter("classid")+"' ";
+String sql ="select * from student s,temprature t where classid='"+request.getParameter("classid")+"' ";
 resultSet = statement.executeQuery(sql);
 while(resultSet.next()){
+	int x = Integer.parseInt(resultSet.getString("mtemp"));
+	if(x < 37) {
+		String color = "red";
+	}
 %>
 <tr id="myTable" class="table table-striped">
-<td><%=resultSet.getString("sid") %></td>
-<td><%=resultSet.getString("fname") %></td>
-<td><%=resultSet.getString("pname") %></td>
-<td><%=resultSet.getString("phone") %></td>
-<td><%=resultSet.getString("address") %></td>
-<td><%=resultSet.getString("mtemp") %></td>
-<td><%=resultSet.getString("atemp") %></td>
+	<td><%=resultSet.getString("sid") %></td>
+	<td><%=resultSet.getString("fname") %></td>
+	<td><%=resultSet.getString("pname") %></td>
+	<td><%=resultSet.getString("phone") %></td>
+	<td><%=resultSet.getString("address") %></td>
+	<td><%= x %></td>
+	<td><%=resultSet.getString("atemp") %></td>
 </tr>
+
 <%
+
 }
 connection.close();
 } catch (Exception e) {
@@ -233,6 +249,7 @@ try
 	}
 
 %>
+
 
 
 

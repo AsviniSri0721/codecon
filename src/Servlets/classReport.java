@@ -118,7 +118,7 @@ public class classReport extends HttpServlet {
 		    
 		    Paragraph par1=new Paragraph();
 		  
-		    par1.add(new Phrase("HINDU LADIES COLLEGE"));
+		    par1.add(new Phrase("Covid Lanka"));
 		    par1.setAlignment(Element.ALIGN_CENTER);
 		    par1.add(new Phrase(Chunk.NEWLINE));
 		    par1.add(new Phrase(Chunk.NEWLINE));

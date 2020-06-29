@@ -132,7 +132,7 @@ public class ReportOnTemp extends HttpServlet {
 		    
 		    Paragraph par1=new Paragraph();
 		  
-		    par1.add(new Phrase("HINDU LADIED COLLEGE"));
+		    par1.add(new Phrase("Covid Lanka"));
 		    par1.setAlignment(Element.ALIGN_CENTER);
 		    par1.add(new Phrase(Chunk.NEWLINE));
 		    par1.add(new Phrase(Chunk.NEWLINE));

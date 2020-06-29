@@ -62,8 +62,8 @@ public class addTempMorning extends HttpServlet {
 		 
 		 if(morningtemp.equals("SUCCESS"))   //On success, you can display a message to user on Home page
 		 {
-		 //request.getRequestDispatcher("/AddProductView.jsp").forward(request, response);
-		System.out.println("added");
+		 request.getRequestDispatcher("/home.jsp").forward(request, response);
+		  System.out.println("added");
 		 }
 		 else   //On Failure, display a meaningful message to the User.
 		 {

@@ -21,14 +21,44 @@
       background-color: #f2f2f2;
       padding: 25px;
     }
-     body{
+    body{
     background-color:lightgrey;
     background-image:url('image/im1.jpg');
     background-attachment:fixed;
     background-size:cover;
     }
-  
     
+    * {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+bu.{
+border:none;
+color:white;
+
+text-align:center;
+display:inline-block;
+font-size:40px;
+
+cursor:pointer;
+ width: 100px;
+ height: 300px;
+}
   </style>
 </head>
 <body>
@@ -45,10 +75,10 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li ><a href="addStudentDetails.jsp">Add Students</a></li>
+        <li class="active"><a href="addStudentDetails.jsp">Add Students</a></li>
         <li><a href="viewStudent.jsp">Add Student temperature</a></li>
         <li><a href="fullDetailsView.jsp">Student Temperature</a></li>
-        <li class="active"><a href="ReportTemp.jsp">Generate report</a></li>
+        <li><a href="ReportTemp.jsp">Generate report</a></li>
         <li><a href="SendEmail.jsp">Send mail</a></li>
         
       </ul>
@@ -57,42 +87,25 @@
   </div>
 </nav>
 
-<style>
-input[type=text], input[type=password] {
-  width: 20%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-</style>
-<body>  
-<br><br>
-  </form>
-  <div1>
-  <div  class="container text-center" class="container" >
-  <form action="classReport" method="get">
- <center> <h3>STUDENT TEMPERATURE ACCORDING TO CLASS</h3></center><br>
-  CLASS ID:<input type="text" name="classid"  class="form-control form-control-sm" >
-  <br><br>
-  <button class="btn btn-primary">REPORT</button>
-  <br><br>
-   </form>
-   
-    <form action="AverageTempReport" method="get">
- <center><h3 >STUDENT MORNING TEMPERATURE 37> </h3></center>
-  <br>
-  <button class="btn btn-primary">REPORT</button><br>
-  <br><br>
-  </form>
-     <form action="AverageTempReportAfternoon" method="get">
- <center> <h3>STUDENT AFTERNOON TEMPERATURE 37> </h3></center>
-  <br>
-  <button class="btn btn-primary">REPORT</button><br>
-  <br><br>
-  </form>
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>CovidLanka</h1>      
+    <p>We Care For You</p>
   </div>
-  </div1>
+  </div>
+<!-- </div> -->
+<br>
+
+
+
+
+<div class="container-fluid bg-3 text-center" >   
+   
+
+
+   
+
+</div>
+<br>
 </body>
 </html>

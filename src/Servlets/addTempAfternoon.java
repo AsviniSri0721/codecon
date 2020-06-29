@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Temprature;
-import servise.addTempMorningSER;
+import servise.addTempAfternoonSER;
 
 /**
  * Servlet implementation class addTempAfternoon
@@ -37,28 +37,28 @@ public class addTempAfternoon extends HttpServlet {
 		
 		
 		 
-		 Temprature temprature2 = new Temprature();
+		 Temprature temprature1 = new Temprature();
 		 //Using Java Beans - An easiest way to play with group of related data
-		 temprature2.setTid(tid);
-		temprature2.setSid(sid);
-		temprature2.setMtemp(atemp);
+		 temprature1.setTid(tid);
+		 temprature1.setSid(sid);
+		 temprature1.setAtemp(atemp);
 		
 	
 		
 		 
-		addTempMorningSER Sercice_Akshi1 = new addTempMorningSER();
+		addTempAfternoonSER Sercice_Akshi1 = new addTempAfternoonSER();
 		 
 		 //The core Logic of the Registration application is present here. We are going to insert user data in to the database.
-		 String morningtemp = Sercice_Akshi1.addTemp(temprature2);
+		 String aftertemp = Sercice_Akshi1.addTemp(temprature1);
 		 
-		 if(morningtemp.equals("SUCCESS"))   //On success, you can display a message to user on Home page
+		 if(aftertemp.equals("SUCCESS"))   //On success, you can display a message to user on Home page
 		 {
-		 //request.getRequestDispatcher("/AddProductView.jsp").forward(request, response);
+			 request.getRequestDispatcher("/home.jsp").forward(request, response);
 		System.out.println("added");
 		 }
 		 else   //On Failure, display a meaningful message to the User.
 		 {
-		 request.setAttribute("errMessage", morningtemp);
+		 request.setAttribute("errMessage", aftertemp);
 		 //request.getRequestDispatcher("/AddProductView.jsp").forward(request, response);
 		 }
 		 }

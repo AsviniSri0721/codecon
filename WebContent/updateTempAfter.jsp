@@ -8,14 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Update </h1>
+<h1>Update afternoon temperature </h1>
 <form  method="POST" action="addTempAfternoon">
 
 
 STUDENT ID:<br>
 <input type="text"  name="sid" class="form-control form-control-sm" required/>
 <br>
-MORNING TEMPERATURE:<br>
+AFTERNOON TEMPERATURE:<br>
 <input type="text"  name="atemp" class="form-control form-control-sm" required/>
 
 <br><br>

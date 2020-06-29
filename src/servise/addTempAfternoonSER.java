@@ -12,7 +12,7 @@ public class addTempAfternoonSER {
 	public String addTemp(Temprature temprature2) {
 		// TODO Auto-generated method stub
 		String sid = temprature2.getSid();
-		String atemp = temprature2.getMtemp();
+		String atemp = temprature2.getAtemp();
 	
 		
 		
@@ -24,6 +24,7 @@ public class addTempAfternoonSER {
 	 {
 	 con = DataBaseCon.createConnection();
 	 String query = "insert into temprature(sid,atemp) values (?,?)"; //Insert user details into the table 'USERS'
+	
 	 preparedStatement = con.prepareStatement(query); //Making use of prepared statements here to insert bunch of data
 	 preparedStatement.setString(1, sid);
 	 preparedStatement.setString(2, atemp);

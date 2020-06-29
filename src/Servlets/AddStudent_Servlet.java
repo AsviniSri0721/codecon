@@ -66,8 +66,8 @@ public class AddStudent_Servlet extends HttpServlet {
 		 
 		 if(Registeredstudent.equals("SUCCESS"))   //On success, you can display a message to user on Home page
 		 {
-		 //request.getRequestDispatcher("/AddProductView.jsp").forward(request, response);
-		System.out.println("hooooooooooooooooo");
+		 request.getRequestDispatcher("/home.jsp").forward(request, response);
+		  System.out.println("hooooooooooooooooo");
 		 }
 		 else   //On Failure, display a meaningful message to the User.
 		 {

@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Update </h1>
+<h1>Update morning temperature </h1>
 <form  method="POST" action="addTempMorning">
 
 

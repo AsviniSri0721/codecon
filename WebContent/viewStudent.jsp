@@ -9,34 +9,7 @@
 <%!String user = "root";%>
 <%!String psw = "";%>
 <head>
-  
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
- </head>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="">Page 1</a></li>
-      <li><a href="">Page 2</a></li>
-    </ul>
-    <form action="viewStudent.jsp" class="navbar-form navbar-left" action="/action_page.php">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Enter class id" name="classid">
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-  </div>
-</nav>
-<br><br>
-<center><h1>ADD STUDENT TEMPERATURE</h1>
-<br>
+
 <%
 String sid = request.getParameter("sid");
 String driver = "com.mysql.jdbc.Driver";
@@ -95,13 +68,74 @@ body {font-family: Arial, Helvetica, sans-serif;}
   text-decoration: none;
   cursor: pointer;
 }
+input[type=text], input[type=password] {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
 </style>
 
 <html>
-<link rel="stylesheet" href="Views/bootstrap.min.css">
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <head>
+  <title>CovidLanka</title>
+  <meta charset="utf-8">
+ 
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+   
+    
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">CovidLanka</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li ><a href="addStudentDetails.jsp">Add Students</a></li>
+        <li class="active"><a href="viewStudent.jsp">Add Student temperature</a></li>
+        <li><a href="fullDetailsView.jsp">Student Temperature</a></li>
+        <li><a href="ReportTemp.jsp">Generate report</a></li>
+        <li><a href="SendEmail.jsp">Send mail</a></li>
+        <li>
+        <form action="viewStudent.jsp" class="navbar-form navbar-left" action="/action_page.php">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter class id" name="classid">
+      </div>
+      <button type="submit" class="btn btn-default">ENTER</button>
+        </form>
+        </li>
+      </ul>
+      
+    </div>
+  </div>
+</nav>
 <head>
 <script>
 function myFunction() {
@@ -150,9 +184,15 @@ window.onclick = function(event) {
   }
 }
 </script>
- <input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search username...." >
- <br><br>
+<br>
+ <center><h1>ADD STUDENT TEMPERATURE</h1>
+ 
+<div  class="container text-center">
+ <input class="" type="text" id="myInput" onkeyup="myFunction()" margin-left:"20px" placeholder="Search by name...." >
+ </div>
+ <br>
   <div class="container">
+ 
 <table id="myTable" class="table table-striped">
 <tr class="header">
 <th >STUDENT ID</th>
@@ -178,7 +218,7 @@ while(resultSet.next()){
 <td><%=resultSet.getString("phone") %></td>
 <td><%=resultSet.getString("address") %></td>
 <td> 
-<div class="container">
+
   <!-- Trigger the modal with a button -->
   <button type="button" class="btn btn-info " data-toggle="modal" data-target="#myModal" href="updateTemp.jsp">	MORNING TEMPERATURE</button>
   <!-- Modal -->
@@ -204,9 +244,9 @@ while(resultSet.next()){
 <td>
 <div class="container">
   <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info " data-toggle="modal" data-target="#myModal" href="UpdateAfteroonTempProcess.jsp">AFTERNOON TEMPERATURE</button>
+  <button type="button" class="btn btn-info " data-toggle="modal" data-target="#myModal2" href="updateTempAfter.jsp">AFTERNOON TEMPERATURE</button>
   <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
+  <div class="modal fade" id="myModal2" role="dialog">
     <div class="modal-dialog">   
       <!-- Modal content-->
       <div class="modal-content">

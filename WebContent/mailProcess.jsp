@@ -51,7 +51,7 @@
         // Send message
         Transport.send(message);
         result = "mail sent successfully ....";
-        request.getRequestDispatcher("/Supplier_Manager.jsp").forward(request, response);
+        request.getRequestDispatcher("/home.jsp").forward(request, response);
         
     } catch (MessagingException mex) {
         mex.printStackTrace();
